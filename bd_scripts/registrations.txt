@@ -1,0 +1,14 @@
+CREATE TYPE queue_status AS ENUM (
+    'Ожидает рассмотрения',
+    'Принят',
+    'Отклонён'
+);
+
+CREATE TABLE registrations (
+	"id" SERIAL PRIMARY KEY,
+	"party_id" INTEGER REFERENCES parties(id) ON DELETE CASCADE,
+	"character_id" INTEGER REFERENCES characters(id) ON DELETE CASCADE,
+	"status" queue_status DEFAULT 'Ожидает рассмотрения',
+	"applied_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	"notes" VARCHAR(5000)
+)
