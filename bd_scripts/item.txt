@@ -1,0 +1,32 @@
+CREATE TYPE types_of_rarity AS ENUM (
+    'Обычный',
+    'Необычный',
+    'Редкий',
+    'Очень редкий',
+	'Легендарный',
+	'Артефакт',
+	'Не имеет редкости',
+	'Редкость варьируется'
+);
+
+CREATE TYPE types_of_item AS ENUM (
+    'Волшебная палочка',
+	'Доспех',
+	'Жезл',
+	'Зелье',
+	'Кольцо',
+	'Оружие',
+	'Помох',
+	'Свиток',
+	'Чудесный предмет'
+);
+
+CREATE TABLE item (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(50) UNIQUE NOT NULL,
+	"description" VARCHAR(5000) NOT NULL,
+	"rarity" types_of_rarity NOT NULL,
+	"price" INTEGER NOT NULL,
+	"type" types_of_item NOT NULL,
+	"image_address" VARCHAR(500)
+)   
