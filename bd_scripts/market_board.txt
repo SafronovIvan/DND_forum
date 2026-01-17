@@ -1,0 +1,7 @@
+CREATE TABLE market_board (
+	"id_character" INTEGER REFERENCES characters(id) ON DELETE SET NULL,
+	"id_item" INTEGER REFERENCES item(id) ON DELETE SET NULL,
+	"count" INTEGER DEFAULT 1,
+	"commentary" VARCHAR(5000) NOT NULL,
+	"price" INTEGER NOT NULL
+);
