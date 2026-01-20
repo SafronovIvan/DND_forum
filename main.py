@@ -22,4 +22,3 @@ def open_DataBase(env_file="bd.end"):
         print(e)
 
 database, cursor = open_DataBase()
-
