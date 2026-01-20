@@ -14,8 +14,6 @@ def open_DataBase(env_file="bd.end"):
             password = os.getenv('DB_PASSWORD')
         )
         cursor = database.cursor()
-        cursor.execute("SELECT version();")
-        version = cursor.fetchone()[0]
         return bd, cursor
             
     except Exception as e:
