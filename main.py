@@ -1,7 +1,11 @@
 import psycopg2
 import os
 from dotenv import load_dotenv
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask_sqlalchemy import SQLAlchemy
 
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'e3b0c4429ae41e4649b934c2309867314259802afcdb876dbdce149afbf4c8996fb92427'
 
 def open_DataBase(env_file="bd.end"):
     try:
@@ -18,5 +22,6 @@ def open_DataBase(env_file="bd.end"):
             
     except Exception as e:
         print(e)
+
 
 database, cursor = open_DataBase()

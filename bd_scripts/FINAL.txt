@@ -1,6 +1,6 @@
 
 CREATE TYPE party_status AS ENUM (
-    'Анонс',
+    'На одобрении',
     'Набор открыт',
     'Набор закрыт',
     'В процессе',
@@ -18,7 +18,8 @@ CREATE TABLE users (
 	"password_hash" VARCHAR(300) NOT NULL,
 	"email" VARCHAR(100) UNIQUE NOT NULL,
 	"priority_score" INTEGER DEFAULT 10,
-	"created_at"  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	"created_at"  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "is_moder" BOOLEAN DEFAULT False
 );
 
 CREATE TABLE characters (
@@ -41,7 +42,7 @@ CREATE TABLE parties (
     "min_players" INTEGER DEFAULT 3 CHECK (min_players BETWEEN 1 AND 99),
     "max_players" INTEGER DEFAULT 5 CHECK (max_players BETWEEN 1 AND 99),
     CHECK (max_players >= min_players),
-    "status" party_status DEFAULT 'Анонс',
+    "status" party_status DEFAULT 'На одобрении',
     "schedule_date" DATE NOT NULL,
     "schedule_time" TIME NOT NULL,
     "location" VARCHAR(500) NOT NULL,
