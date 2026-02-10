@@ -1,0 +1,19 @@
+\sloppy
+
+% ГОСТ 7.32
+\usepackage{prop/gost} 
+
+% Внешние пакеты
+\usepackage{anyfontsize} % дробные шрифты (12pt, 13pt etc) 
+\usepackage[capitalize]{cleveref} % перекрёстные ссылки
+
+% Самописные пакеты
+\input{prop/listings.inc} % листинги кода
+\input{prop/title.inc} % титульный лист
+
+% Cквозная нумерация (отключить - закоментировать)
+\usepackage{chngcntr} 
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+

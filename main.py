@@ -22,6 +22,6 @@ def open_DataBase(env_file="bd.end"):
             
     except Exception as e:
         print(e)
-
+  
 
 database, cursor = open_DataBase()

@@ -1,0 +1,33 @@
+% Оформление листинга кода как рисунка
+\usepackage[chapter, newfloat]{minted}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+
+\renewcommand{\listoflistings}{
+  \cleardoublepage
+  \addcontentsline{toc}{chapter}{List of Code}
+  \listof{listing}{List of Code}
+}
+
+\setminted{
+    frame=lines,
+    framesep=2mm,
+    bgcolor=white,
+    fontsize=\small,
+    linenos,
+    breaklines
+}
+
+% Пример использования
+
+% \begin{code}
+%     \begin{minted}{csharp}
+% # long long С# code
+% # long long С# code
+% ...
+%
+%     \end{minted}
+%     \captionof{figure}{С\# код}
+%     \label{lst:main}
+% \end{code}
