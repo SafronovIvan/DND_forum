@@ -1,7 +1,0 @@
-ROLLBACK;
-CREATE TABLE ratings (
-	"id" SERIAL PRIMARY KEY,
-	"from_user_id" INTEGER REFERENCES users(id) ON DELETE CASCADE,
-	"to_user_id" INTEGER REFERENCES users(id) ON DELETE CASCADE,
-	"rating" INTEGER CHECK (rating BETWEEN 1 AND 5)
-)
